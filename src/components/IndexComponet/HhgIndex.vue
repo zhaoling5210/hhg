@@ -86,6 +86,7 @@ export default {
     // }).then(result=>{
     //   console.log(result);
     // })
+    // 请求
     let res = await fetchJsonp("http://127.0.0.1:9999/floor");
     this.floorImg = Object.freeze(await res.json());
   },
