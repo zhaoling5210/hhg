@@ -73,7 +73,6 @@
 
 <script>
 import HhgFloor from "./HhgFloor";
-import fetchJsonp from "fetch-jsonp";
 export default {
   data() {
     return {
@@ -87,8 +86,9 @@ export default {
     //   console.log(result);
     // })
     // 请求
-    let res = await fetchJsonp("http://127.0.0.1:9999/floor");
-    this.floorImg = Object.freeze(await res.json());
+    // console.log(this.axios)
+    let res = await this.axios.get("/floor",{});
+    this.floorImg = Object.freeze(await res.data.data);
   },
   components: {
     HhgFloor

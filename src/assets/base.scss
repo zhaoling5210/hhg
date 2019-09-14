@@ -27,6 +27,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+li {
+  list-style: none;
+}
 html {
   box-sizing: border-box;
 }
@@ -45,6 +48,6 @@ a:hover {
   color: #181818;
   font-weight: bold;
 }
-input{
-  outline:none;
+input {
+  outline: none;
 }

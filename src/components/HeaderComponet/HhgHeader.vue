@@ -10,8 +10,8 @@
         </div>
         <div class="h_menu">
           <!-- 过渡 -->
-          <a
-            href="javascript:;"
+          <router-link
+            :to="item.link"
             class="a_list"
             :key="index"
             v-for="(item,index) of content"
@@ -19,7 +19,7 @@
           >
             <span class="cn">{{item.cn}}</span>
             <span class="en">{{item.en}}</span>
-          </a>
+          </router-link>
         </div>
         <div class="h_tel">咨询热线：400-6068-158</div>
       </div>
@@ -33,16 +33,16 @@ export default {
   data() {
     return {
       content: Object.freeze([
-        { cn: "网站首页", en: "HOME" },
-        { cn: "获取报价", en: "QUOTE" },
-        { cn: "婚礼", en: "WEDDING" },
-        { cn: "酒店预订", en: "HOTEL" },
-        { cn: "海外婚礼", en: "OVERSEAS" },
-        { cn: "活动派对", en: "PARTY" },
-        { cn: "司仪天团", en: "STARCEREMONIES" },
-        { cn: "关于我们", en: "ABOUT" },
-        { cn: "加入我们", en: "JOINUS" },
-        { cn: "活动预约", en: "EVENT" }
+        { cn: "网站首页", en: "HOME", link: "/" },
+        { cn: "获取报价", en: "QUOTE", link: "/" },
+        { cn: "婚礼", en: "WEDDING", link: "/wedding" },
+        { cn: "酒店预订", en: "HOTEL", link: "/" },
+        { cn: "海外婚礼", en: "OVERSEAS", link: "/" },
+        { cn: "活动派对", en: "PARTY", link: "/" },
+        { cn: "司仪天团", en: "STARCEREMONIES", link: "/" },
+        { cn: "关于我们", en: "ABOUT", link: "/" },
+        { cn: "加入我们", en: "JOINUS", link: "/" },
+        { cn: "活动预约", en: "EVENT", link: "/" }
       ])
     };
   }
