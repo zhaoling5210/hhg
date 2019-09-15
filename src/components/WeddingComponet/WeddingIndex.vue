@@ -31,20 +31,25 @@
       <div class="inside_web_cont" id="wed_cont">
         <div class="inside_web_menu">
           <ul>
-            <a v-for="(item,index) of weddingType" :key="index" :class="{on:currentType==item}" @click="typeOfWedding(item)">{{item||'全部'}}</a>
+            <a
+              v-for="(item,index) of weddingType"
+              :key="index"
+              :class="{on:currentType==item}"
+              @click="typeOfWedding(item)"
+            >{{item||'全部'}}</a>
             <!-- <a :class="{on:currentType==''}" @click="typeOfWedding('')">全部</a>
             <a :class="{on:currentType=='草坪婚礼'}" @click="typeOfWedding('草坪婚礼')">草坪婚礼</a>
             <a :class="{on:currentType=='主题婚礼'}" @click="typeOfWedding('主题婚礼')">主题婚礼</a>
             <a :class="{on:currentType=='西式婚礼'}" @click="typeOfWedding('西式婚礼')">西式婚礼</a>
             <a :class="{on:currentType=='中式婚礼'}" @click="typeOfWedding('中式婚礼')">中式婚礼</a>
-            <a :class="{on:currentType=='创意婚礼'}" @click="typeOfWedding('创意婚礼')">创意婚礼</a> -->
+            <a :class="{on:currentType=='创意婚礼'}" @click="typeOfWedding('创意婚礼')">创意婚礼</a>-->
           </ul>
           <p>2019 NEW COLLECTION FROM HUAHAIGE WEDDING</p>
         </div>
         <div class="wedding_content">
           <ul>
             <li v-for="(item,index) of weddingList" :key="index">
-              <a href target="_blank">
+              <a @click="detailPage(item.wid)">
                 <div class="wedpic">
                   <i></i>
                   <!-- axios配制的服务器端地址 + 图片在数据库存的地址 -->
@@ -114,8 +119,13 @@ export default {
       +(await this.axios.get("/weddingListCount", {})).data.data / this.count
     );
     this.weddingList = res.data.data;
+    // console.log(this.weddingList);
   },
   methods: {
+    detailPage(wid) {
+      // console.log(wid);
+      this.$router.push({ path: "/detail", query: { wid } });
+    },
     // 页码改变重新查询
     async pagination(index) {
       let res = await this.axios.get("/weddingList", {
@@ -126,7 +136,7 @@ export default {
     async typeOfWedding(type) {
       // 点击婚礼类型更换 currentType
       this.currentType = type;
-      // 点击婚礼类型重新查询
+      // 点击婚礼类型重新查询 (每页显示多少个，第几页，婚礼类型【可选】)
       let res = await this.axios.get("/weddingList", {
         params: { count: this.count, page: this.currentPage, type }
       });

@@ -39,7 +39,7 @@ export default {
         { cn: "酒店预订", en: "HOTEL", link: "/" },
         { cn: "海外婚礼", en: "OVERSEAS", link: "/" },
         { cn: "活动派对", en: "PARTY", link: "/" },
-        { cn: "司仪天团", en: "STARCEREMONIES", link: "/" },
+        { cn: "司仪天团", en: "STARCEREMONIES", link: "/siyi" },
         { cn: "关于我们", en: "ABOUT", link: "/" },
         { cn: "加入我们", en: "JOINUS", link: "/" },
         { cn: "活动预约", en: "EVENT", link: "/" }
